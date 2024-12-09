@@ -12,7 +12,10 @@ Meetup is a Social Events and Groups app that aggregates events and activities t
 
 Name: Meetup 
 Version: v.2024.11.14 (632295) 
-
+We logged in as a test user with the name Beaufort and added interests.  
+![Screenshot 2024-12-08 063540](https://github.com/user-attachments/assets/2ead24a9-56c2-44cb-b97d-2e202d6d405c)
+Using another account, we created a test event located in downtown Portland. The user joined this event and interacted with the group by texting, adding comments, sending pictures and adding this event to the calendar. 
+![Screenshot 2024-12-08 064103](https://github.com/user-attachments/assets/164900bf-7b58-479f-ba99-5087887b72cd)
 
 
 We logged in as a test user with the name Beaufort and added interests.  
