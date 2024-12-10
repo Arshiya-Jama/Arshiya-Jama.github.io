@@ -13,9 +13,11 @@ Meetup is a Social Events and Groups app that aggregates events and activities t
 Name: Meetup 
 Version: v.2024.11.14 (632295) 
 We logged in as a test user with the name Beaufort and added interests.  
+
 <img src="https://github.com/user-attachments/assets/2ead24a9-56c2-44cb-b97d-2e202d6d405c" width="500" />
 
 Using another account, we created a test event located in downtown Portland. The user joined this event and interacted with the group by texting, adding comments, sending pictures and adding this event to the calendar. 
+
 <img src="https://github.com/user-attachments/assets/164900bf-7b58-479f-ba99-5087887b72cd" width="500" />
 
 #### Device Details 
@@ -160,7 +162,7 @@ This database shows the key and its corresponding record of the details that are
 
 The meetup event page is a central location for attendees to interact. Users can send comments and upload images. Some of these interactions are stored by Apollo database. We have created a simple python script that will extract the relevant user and event information from the Apollo database. The screenshot below shows the user sending an input of 6 on the main menu which is - Event Details. The script also has the capability to collect past notification prompts, user interests and more.  
 
-<img src="https://github.com/user-attachments/assets/f742cd59-b407-4fed-a800-cffae81307a0" width="500" />
+<img src="https://github.com/user-attachments/assets/f742cd59-b407-4fed-a800-cffae81307a0" width="300" />
 
 We extract information such as comments, users involved in the conversation, location details, event settings and a sample of the output parsed from the SQLite file and json data is shown below: 
 
@@ -196,6 +198,6 @@ This particular image seems like a display picture of a speed dating event. Duri
 * Meetup API: https://www.meetup.com/api/schema/#PayloadError
 * Autppsy: https://www.autopsy.com/
 * Deserializer: https://github.com/ydkhatri/MacForensics/tree/master/Deserializer
-* Script for parsing Apollo: https://github.com/Arshiya-Jama/parseApolloDbMeetup/blob/main/parseApolloDB.py)
+* Script for parsing Apollo: https://github.com/Arshiya-Jama/parseApolloDbMeetup/blob/main/parseApolloDB.py
 * Format JSON: jsonformatter.org
 * Cellebrite: https://cellebrite.com/en/premium/
