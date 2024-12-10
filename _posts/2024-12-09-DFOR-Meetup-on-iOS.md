@@ -73,15 +73,20 @@ In this database, the table called appInfo had an entry for *com.meetup.iphone* 
 **InstallDate** value is also shown in timestamp format similar to lastLauchDate. This value shows when the application was first installed.  
 
 The **subsequentLaunchCounts** and **subsequentAppActionLaunchCounts** provided blob data which we extracted as a separate file. The extracted data closely resembled plist data as showed in the following screenshot: 
-<img src="https://github.com/user-attachments/assets/356f77f6-81fc-4234-996c-e781e2449248" width="500" />
+
+<img src="https://github.com/user-attachments/assets/356f77f6-81fc-4234-996c-e781e2449248" width="300" />
 
 To look at this data, we saved it, ran it through deserializer.exe and opened the output using plist viewer.  
 
 During the testing we opened a few apps after using meetup, however the values the application is showing are not in whole numbers for which we currently do not have an explanation: 
-<img src="https://github.com/user-attachments/assets/72a26b6d-7e6b-42eb-970d-1c2f6c0ab006" width="500" />
+
+<img src="https://github.com/user-attachments/assets/72a26b6d-7e6b-42eb-970d-1c2f6c0ab006" width="300" />
+
 We also launched an action from the Meetup app to create a calendar entry for the upcoming event, which is reflected in the below subsequentAppActionLaunchCounts blob: 
-<img src="https://github.com/user-attachments/assets/65ee045f-74af-4467-9e51-6a08033f8e84" width="500" />
-com.apple.mobilecal is the bundle ID for calendar application and CreateEventIntent seems like a function to create a calendar entry although we did not find any documentation available for this.  
+
+<img src="https://github.com/user-attachments/assets/65ee045f-74af-4467-9e51-6a08033f8e84" width="300" />
+
+*com.apple.mobilecal* is the bundle ID for calendar application and CreateEventIntent seems like a function to create a calendar entry although we did not find any documentation available for this.  
 
 #### Messages 
 
@@ -122,6 +127,7 @@ The cache only provided us with the last message, however we were able to locate
 filesystem1\private\var\mobile\Library\DuetExpertCenter\streams\userNotificationEvents\local
 ```
 This was analyzed using iLeapp. As this is extracted from notification data, we can only see the messages sent to the user and not the messages sent by the user: 
+
 <img src="https://github.com/user-attachments/assets/2a4fd2ee-613f-4d0d-af5b-0351cf61cefc" width="500" />
 
 #### Groups and events 
@@ -149,15 +155,37 @@ We were also able to find most of the event details in another SQLite database f
 \filesystem1\private\var\mobile\Containers\Data\Application\<App_ID>\Library\Application Support\Apollo 
 ````
 This database shows the key and its corresponding record of the details that are loaded into the application itself. We were able to correlate this information and understand it by using the API documentation provided by Meetup. The event details were stored here under the key called *QUERY_ROOT.event(id:<id_number>)*. The event related information was stored in this database as a json: 
+
 <img src="https://github.com/user-attachments/assets/7f68d19f-f12b-4520-a6f9-159938acd0f5" width="500" />
 
 The meetup event page is a central location for attendees to interact. Users can send comments and upload images. Some of these interactions are stored by Apollo database. We have created a simple python script that will extract the relevant user and event information from the Apollo database. The screenshot below shows the user sending an input of 6 on the main menu which is - Event Details. The script also has the capability to collect past notification prompts, user interests and more.  
+
 <img src="https://github.com/user-attachments/assets/f742cd59-b407-4fed-a800-cffae81307a0" width="500" />
 
 We extract information such as comments, users involved in the conversation, location details, event settings and a sample of the output parsed from the SQLite file and json data is shown below: 
+
 <img src="https://github.com/user-attachments/assets/f4dccdd3-557f-4156-8aa2-800660e7b1e7" width="500" />
 
-### References: 
+### Images 
+
+We found certain images stored by meetup in the cache folders. In this section, we will analyze what these images might be and where we can find them. We found most of the images in the following directory: 
+```tsql
+\filesystem1\private\var\mobile\Containers\Data\Application\<App_ID>\Library\Caches\com.hackemist.SDImageCache\default 
+```
+
+<img src="https://github.com/user-attachments/assets/fb5b089b-cffc-4a4f-9f13-a46f2274d293" width="400" />
+
+The images blurred out with a grey shape seemed like profile pictures of legitimate users on the application. Our test user has not visited any other profiles apart from the organizer of an event hosted by the other test profile (marked as 1). This leads us to believe that the images may be users who have either visited our test profile or share similar interests which may have led meetup to cache these profile pictures.  
+
+The images marked with “1” is profile picture of the test profile that has created the event that my user has joined. We have also interacted with this user (by commenting and messaging on the app) which is why there might be multiple images of this user in our cache folder.  
+
+The images marked with 2 seem like display pictures of events. For example, one of the images was as follows: 
+
+<img src="https://github.com/user-attachments/assets/018e680f-1777-4ca5-a987-c4db8abbe6ab" width="400" />
+
+This particular image seems like a display picture of a speed dating event. During our testing, my user did not click or follow this event, however, this may have been stored in cache by the application for recommendation or advertising purposes. In conclusion the cache stores images that our user may not have interacted with; however we did notice multiple images of the user that we have been interacting with.  
+
+### References:
 
 Apple developer archives - .nib files: https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/NibFile.html
 Cocoa Core Data Timestamp Converter - https://www.epochconverter.com/coredata
@@ -168,3 +196,4 @@ Apple Bundle Identifiers List: https://github.com/joeblau/apple-bundle-identifie
 Meetup API: https://www.meetup.com/api/schema/#PayloadError
 Autppsy: https://www.autopsy.com/
 Deserializer: https://github.com/ydkhatri/MacForensics/tree/master/Deserializer
+Script for parsing Apollo
