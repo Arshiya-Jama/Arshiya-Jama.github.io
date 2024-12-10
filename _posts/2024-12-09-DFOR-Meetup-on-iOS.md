@@ -54,7 +54,7 @@ This folder gave us the most amount of information as it included caches, user d
 \filesystem1\private\var\containers\Bundle\Application\<App ID>\Meetup.app
 ```
 
-This folder contains multiple .nib files. A nib file is a special type of resource file that you use to store the user interfaces of iOS and Mac apps – in short it is an Interface Builder document. We have not extensively analyzed this as we did not find any user data stored in these files. Apart from these, the folders contained information on plugins and bundles that meetup integrates with. For example, some of the bundles used here are Firebase, Google sign-in utilities, NYT Photo viewer and more. A complete list of the bundles we found in this version of meetup will be referenced in the Appendix along with an example of the bundle details stored. 
+This folder contains multiple .nib files. A nib file is a special type of resource file that you use to store the user interfaces of iOS and Mac apps – in short it is an Interface Builder document. We have not extensively analyzed this as we did not find any user data stored in these files. Apart from these, the folders contained information on plugins and bundles that meetup integrates with. For example, some of the bundles used here are Firebase, Google sign-in utilities, NYT Photo viewer and more.
 
 #### Application Information 
 
