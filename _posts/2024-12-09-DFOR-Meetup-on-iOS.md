@@ -187,13 +187,15 @@ This particular image seems like a display picture of a speed dating event. Duri
 
 ### References:
 
-* [Apple developer archives - .nib files](https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/NibFile.html)
-* [Cocoa Core Data Timestamp Converter](https://www.epochconverter.com/coredata)
-* [Duet for iOS and Mac OS X](A hands-on review: https://www.computerworld.com/article/1490190/hands-on-with-duet-for-ios-and-mac-os-x.html)
-* [DB Browser for SQLite](https://sqlitebrowser.org/)
-* [Plist Editor Pro](https://www.fatcatsoftware.com/plisteditpro/)
-* [Apple Bundle Identifiers List](https://github.com/joeblau/apple-bundle-identifiers)
-* [Meetup API](https://www.meetup.com/api/schema/#PayloadError)
-* [Autppsy](https://www.autopsy.com/)
-* [Deserializer](https://github.com/ydkhatri/MacForensics/tree/master/Deserializer)
-Script for parsing Apollo
+* Apple developer archives - .nib files: https://developer.apple.com/library/archive/documentation/General/Conceptual/DevPedia-CocoaCore/NibFile.html
+* Cocoa Core Data Timestamp Converter: https://www.epochconverter.com/coredata
+* Duet for iOS and Mac OS X - A hands-on review: https://www.computerworld.com/article/1490190/hands-on-with-duet-for-ios-and-mac-os-x.html
+* DB Browser for SQLite: https://sqlitebrowser.org/
+* Plist Editor Pro: https://www.fatcatsoftware.com/plisteditpro/
+* Apple Bundle Identifiers List: https://github.com/joeblau/apple-bundle-identifiers
+* Meetup API: https://www.meetup.com/api/schema/#PayloadError
+* Autppsy: https://www.autopsy.com/
+* Deserializer: https://github.com/ydkhatri/MacForensics/tree/master/Deserializer
+* Script for parsing Apollo: https://github.com/Arshiya-Jama/parseApolloDbMeetup/blob/main/parseApolloDB.py)
+* Format JSON: jsonformatter.org
+* Cellebrite: https://cellebrite.com/en/premium/
