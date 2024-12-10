@@ -1,4 +1,4 @@
-## Mobile Forensics - Analyzing data stored by Meetup Application on iOS device
+## Mobile Forensics - Analyzing Data Stored by Meetup Application on iOS Devices
 
 The aim of this blog is to understand data stored by Meetup and research on how and what kind of information is stored on a user's mobile.  
 
